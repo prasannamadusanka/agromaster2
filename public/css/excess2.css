@@ -1,0 +1,189 @@
+.shopping-cart {
+    width: 950px;
+  
+    margin: 50px auto;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+    border-radius: 6px;
+    padding-bottom: 10px;
+  
+    
+  }
+  
+  .title {
+    height: 30px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #006b38ff;
+    font-family: bevan;
+    font-size: 20px;
+    padding-bottom: auto;
+    padding-top: auto;
+    text-align: left;
+  }
+  
+  .item {
+    padding: 10px 30px;
+    height: 80px;
+    display: flex;
+  }
+  
+  .item:nth-child(odd){
+      background-color: #d9534f
+      ;
+  }
+  .item:last-child{
+    border-bottom:  1px solid black;
+  }
+
+  
+  /* Buttons -  Delete and Like */
+  .buttons {
+    position: relative;
+    padding-top: 30px;
+    margin-right: 60px;
+  }
+  
+  .delete-btn {
+    display: inline-block;
+    cursor: pointer;
+    width: 18px;
+    height: 17px;
+    background: url("delete-icn.svg") no-repeat center;
+    margin-right: 20px;
+  }
+  
+  .like-btn {
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    display: inline-block;
+    background: url('twitter-heart.png');
+    width: 60px;
+    height: 60px;
+    background-size: 2900%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  
+  .is-active {
+    animation-name: animate;
+    animation-duration: .2s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(5);
+    animation-fill-mode: forwards;
+  }
+  #save-but{
+    margin-left: 44.5%;
+    background-color: #006b38ff;
+    padding:7px 15px;
+    font-size: large;
+    color:white;
+    border-radius: 5px;
+    border:0px
+  }
+  #save-but:hover{
+      background-color: #013220;
+  }
+  
+  @keyframes animate {
+    0%   { background-position: left;  }
+    50%  { background-position: right; }
+    100% { background-position: right; }
+  }
+  
+  /* Product Image */
+  .image {
+    margin-right: 50px;
+  }
+  
+  /* Product Description */
+  .description {
+    padding-top: 10px;
+    margin-right: 60px;
+    width: 115px;
+  }
+  
+  .description span {
+    display: block;
+    font-size: 14px;
+    color: #43484D;
+    font-weight: 400;
+  }
+  
+  .description span:first-child {
+    margin-bottom: 5px;
+  }
+  .description span:last-child {
+    font-weight: 300;
+    margin-top: 8px;
+    color: #86939E;
+  }
+  
+  /* Product Quantity */
+  .quantity {
+    padding-top: 20px;
+    margin-right: 60px;
+  }
+  .quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+  }
+  
+  
+  .minus-btn img {
+    margin-bottom: 3px;
+  }
+  .plus-btn img {
+    margin-top: 2px;
+  }
+  button:focus,
+  input:focus {
+    outline:0;
+  }
+  
+  /* Total Price */
+  .total-price {
+    width: 230px;
+    padding-top: 27px;
+    text-align: center;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+  }
+  
+  /* Responsive */
+  @media (max-width: 800px) {
+    .shopping-cart {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+    .item {
+      height: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .image img {
+      width: 50%;
+    }
+    .image,
+    .quantity,
+    .description {
+      width: 100%;
+      text-align: center;
+      margin: 6px 0;
+    }
+    .buttons {
+      margin-right: 20px;
+    }
+  }
+  
