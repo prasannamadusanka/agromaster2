@@ -44,6 +44,9 @@ body{
     .logout_btn:hover{
       background: #0B87A6;
     }
+    .invalid-feedback{
+      color:red;
+    }
     
   
   .sidebar{

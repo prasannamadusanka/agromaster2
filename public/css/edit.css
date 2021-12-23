@@ -16,7 +16,7 @@
 }
 
 .memo-edprofile-success {
-  width: 400px;
+  width: 600px;
   text-align: center;
   background-color: #2ecc71;
   color: #ffffff;
@@ -31,7 +31,7 @@
 
 #sc-edprofile {
   background: #f0f0f0;
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
   margin-top: 8px;
   margin-bottom: 2%;
@@ -44,7 +44,7 @@
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
-  text-align: center;
+  text-align: left;
   color: #fff;
 }
 
@@ -55,7 +55,9 @@ div#sc-edprofile .sc-container {
 
 div#sc-edprofile input[type="email"],
 div#sc-edprofile input[type="text"],
-div#sc-edprofile input[type="password"], div#sc-edprofile select, div#sc-edprofile textarea {
+div#sc-edprofile input[type="password"], 
+div#sc-edprofile input[type="file"],
+div#sc-edprofile select, div#sc-edprofile textarea {
   width: 92%;
   background: #fff;
   margin-bottom: 4%;
