@@ -33,6 +33,35 @@ class Request{
   
         return $results;
     }
+    public function getExpenseReport(){
+      $this->db->query('SELECT *
+      FROM expenses where  expenses.collection_center_id=:center_id ');
+     
+      $this->db->bind(':center_id', $_SESSION['user_id']);
+      $results = $this->db->resultSet();
+
+      return $results;
+  }
+  public function addExpenseReport($data,$today){
+    $this->db->query('INSERT INTO expenses (collection_center_id,year,month, description, total_value,initiated_date) VALUES(:collection_center, :year, :month,:description,:total,:date)');
+    // Bind values
+    $s=".jpg";
+    $this->db->bind(':collection_center', $_SESSION['user_id']);
+    $this->db->bind(':month', $data['month']);
+    $this->db->bind(':year', $data['year']);
+    $this->db->bind(':description', $data['description']);
+    $this->db->bind(':total', $data['total']);
+    $this->db->bind(':date', $today);
+    // Execute
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+}
+  public function getUserId(){
+    return $_SESSION['user_id'];
+  }
 
   
 
