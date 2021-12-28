@@ -31,10 +31,7 @@
     display: flex;
   }
   
-  .item:nth-child(odd){
-      background-color: #d9534f
-      ;
-  }
+  
   .item:last-child{
     border-bottom:  1px solid black;
   }
@@ -201,4 +198,4 @@
       margin-right: 20px;
     }
   }
-  
+   
