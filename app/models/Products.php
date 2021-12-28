@@ -107,6 +107,18 @@
       return false;
     }
   }
+  public function changeOrderStatus($id){
+    $this->db->query('UPDATE orders SET assigned_status =:rejected  WHERE order_id = :id');
+    // Bind values
+    $this->db->bind(':id', $id);
+    $this->db->bind(':rejected', 'rejected');
+    // Execute
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+  }
   public function incrementBalance($nic,$total){
     $this->db->query('UPDATE farmers SET balance =balance+:totalup  WHERE NIC = :nic');
     // Bind values
