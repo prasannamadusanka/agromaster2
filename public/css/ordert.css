@@ -79,15 +79,15 @@ body {
 
 
 .title {
-    color: rgb(252, 103, 49);
-    font-weight: 600;
+    color:#ffdb58 ;
+    font-weight: 1000;
     margin-bottom: 2vh;
     padding: 0 8%;
     font-size:large
 }
 
 #details {
-    font-weight: 400
+    font-weight: 700
 }
 
 .info {
@@ -160,7 +160,7 @@ body {
 
 #progressbar li {
     list-style-type: none;
-    font-size: x-small;
+    font-size: small;
     width: 25%;
     float: left;
     position: relative;
@@ -254,13 +254,8 @@ body {
     background: rgb(252, 103, 49)
 }
 .save{
-    width:150px;
-    height:30px;
-    background-color:#006b38ff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:16px;
-    border:2px solid black;
-    border-radius: 4px;
-    color:white;
-    font-weight: bold;
+    background-color:#006b38ff; padding:5px 10px;text-decoration:none;color:white;height:30px;border-radius: 4px;border:2px solid black
   }
+.save:hover{
+    background:rgba(24, 23, 23, 0.8);
+}
