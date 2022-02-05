@@ -60,7 +60,7 @@
     <th>Outlet name</th>
     <th>Address</th>
     <th>Contact number</th>
-    <!-- <th>Location</th> -->
+    <th>Location</th> 
     <th>Details</th>
     <th>Remove</th>
   </tr>
@@ -71,7 +71,7 @@
     <td> <?php echo $outlet-> address; ?> </td>
     <td> <?php echo $outlet-> con_number; ?> </td>
     
-    <!-- <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagesoutlet/outletlocation">location</a></td> -->
+    <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagesoutlet/outletlocation">location</a></td> 
     <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagesoutlet/outletdetail/<?php echo $outlet-> outlet_id; ?>" method="post">details</a></td>
     <td align="center"><a href="#">remove</a></td>
   </tr>

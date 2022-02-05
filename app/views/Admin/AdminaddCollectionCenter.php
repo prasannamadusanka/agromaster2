@@ -54,9 +54,9 @@
       <!-- <img src="RHA.jpg" class="bellicon"> -->
 
       <div class="form">
-        <form action="<?php echo URLROOT; ?>/Adminpagescc/ccaddrequest" method="post">
+        <!--<form action="<?php echo URLROOT; ?>/Adminpagescc/ccaddrequest" method="post">
           <h4>Add Collection Center</h4>
-          <!-- <div>
+           <div>
             <label>Name - <sup></sup></label> 
             <input type="text"  name="name" size="55" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>"><br>
             <span class="invalid-feedback"><?php echo $data['name_err']; ?></span><br>
@@ -106,9 +106,12 @@
             <input type="submit" value="ADD" class="btn btn-success btn-block">
           </div>
           <button>Reject</button> -->
+        
+        <form action="<?php echo URLROOT; ?>/Adminpagescc/ccaddrequest" method="post">
           
+        <h4>Add Collection Center</h4>  
 
-          <table id="edit">
+          <table id="edit" action="<?php echo URLROOT; ?>/Adminpagescc/ccaddrequest" method="post">
             <tr>
               <td>Name -</td>
               <td><div contenteditable="true"><?php echo $data['outlet']-> center_name; ?></div></td>
@@ -130,8 +133,7 @@
               <td><div contenteditable="true"><?php echo $data['outlet']-> requester_name; ?></div></td>
             </tr>
           </table>
-
-
+          
           <div class="col"> 
           <table>
               <tr>

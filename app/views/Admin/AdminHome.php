@@ -25,7 +25,7 @@
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/images/usericon.jpg" class="profile_image" alt="">
-        <h4>Administrator</h4>
+        <h4><a href="<?php echo URLROOT; ?>/Adminpagesfi/home" method="post">Administrator</a></h4>
       </div>
     <button class="dropdown-btn">
         <a href="#"><i class="fas fa-bars"></i><span>Major Addings</span></a>
@@ -54,7 +54,7 @@
       <table>
         <tr>
           <td></td>
-          <td> <b><h2>SYSTEM ACTORS</h2></b> </td>
+          <td> <b><h2>SYSTEM USERS</h2></b> </td>
           <td></td>
         </tr>
         <tr>

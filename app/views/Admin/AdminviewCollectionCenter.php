@@ -84,8 +84,8 @@
             </tr> -->
 
           </table>
-          <input type="submit" name="" value="Save">
-          <!--<label>Name - </label> <div class="edit" contenteditable="true">Kandy</div>  <br><br>
+          <!--<input type="submit" name="" value="Save">
+          <label>Name - </label> <div class="edit" contenteditable="true">Kandy</div>  <br><br>
           <label>Address - </label>main streat,plus junction<br><br>
           <label>Contact number - </label>+94115246987<br><br>
           <label>E-mail - </label>kandycollectioncenter@gmail.com<br><br>

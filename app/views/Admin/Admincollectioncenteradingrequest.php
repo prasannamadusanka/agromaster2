@@ -20,7 +20,7 @@
         <a href="#" class="logout_btn">Logout</a>
       </div>
     </header>
-      
+    
     <?php include_once('header.php'); ?>
     <div class="sidebar">
       <div class="profile_info">
@@ -42,11 +42,11 @@
     <button class="dropdown-btn">
         <a href="<?php echo URLROOT; ?>/Adminpagescc/cclist" method="post" style="background-color : #08161E;"><i class="fas fa-bars"></i><span>Collection Centers</span></a>
     </button>
-    
+
     <button class="dropdown-btn">
         <a href="<?php echo URLROOT; ?>/Adminpagesoutlet/outletlist" method="post"><i class="fas fa-bars"></i><span>Outlets</span></a>
     </button>
-       
+
     </div>
     <!--sidebar end-->
 
@@ -57,15 +57,9 @@
         <h3>Requests</h3>
 
         <?php foreach($data['ccaddrequest'] as $request) : ?> 
-        <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc/ <?php echo $request-> request_id; ?>"><u><?php echo $request->requester_name; ?></u></a><br>
+        <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc/ <?php echo $request-> request_id; ?>"><u>FROM- <?php echo $request->requester_name; ?></u></a><br>
         <?php endforeach; ?>
 
-
-        <!-- <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc" method="post"><u>Collection Center - Kurunegala</u></a><br>
-        <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc" method="post"><u><u>Collection Center - Kandy</u></a><br>
-        <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc" method="post"><u>Collection Center - Jaffna</u></a><br>
-        <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc" method="post"><u>Collection Center - Mathara</u></a><br>
-        <a href="<?php echo URLROOT; ?>/Adminpagescc/addcc" method="post"><u>Collection Center - Anuradhapura</u></a><br> -->
       </div>
 
     </div>

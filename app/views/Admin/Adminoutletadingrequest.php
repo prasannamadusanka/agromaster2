@@ -57,7 +57,7 @@
       <div class="requests">
         <h3>Requests</h3>
         <?php foreach($data['outletaddrequest'] as $request) : ?> 
-        <a href="<?php echo URLROOT; ?>/Adminpagesoutlet/addoutlet/ <?php echo $request-> request_id; ?>"><u><?php echo $request->requester_name; ?></u></a><br>
+        <a href="<?php echo URLROOT; ?>/Adminpagesoutlet/addoutlet/ <?php echo $request-> request_id; ?>"><u>FROM- <?php echo $request->requester_name; ?></u></a><br>
         <?php endforeach; ?>
 
 

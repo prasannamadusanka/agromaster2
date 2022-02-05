@@ -53,7 +53,8 @@
     <div class="content">
       <!-- <img src="RHA.jpg" class="bellicon"> -->
         <div>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63320.99222951796!2d80.63372617702983!3d7.290568812192256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae367c543bda647%3A0x99ef7d32fc4bc67b!2scentral%20Market%20Kandy!5e0!3m2!1sen!2slk!4v1632813407401!5m2!1sen!2slk" 
+          <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63320.99222951796!2d80.63372617702983!3d7.290568812192256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae367c543bda647%3A0x99ef7d32fc4bc67b!2scentral%20Market%20Kandy!5e0!3m2!1sen!2slk!4v1632813407401!5m2!1sen!2slk" --> 
+            <iframe src="<?php echo $data['embedcode']; ?>"   
             width="600" 
             height="450" 
             style="border:0;

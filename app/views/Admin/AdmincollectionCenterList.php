@@ -60,7 +60,7 @@
     <th>Collection Center name</th>
     <th>Address</th>
     <th>Contact number</th>
-    <!-- <th>Location</th> -->
+    <th>Location</th>
     <th>Details</th>
     <th>Remove</th>
   </tr>
@@ -70,9 +70,10 @@
     <td> <?php echo $collectioncenter-> address; ?> </td>
     <td> <?php echo $collectioncenter-> contact_number; ?> </td>
     
-    <!-- <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagescc/cclocation">location</a></td> -->
+    <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagescc/cclocation/<?php echo $collectioncenter-> collection_center_name; ?>">location</a></td>
     <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagescc/ccdetail/<?php echo $collectioncenter-> collection_center_id; ?>" method="post">details</a></td>
-    <td align="center"><a href="#">remove</a></td>
+    <td align="center"><a href="<?php echo URLROOT; ?>/Adminpagescc/ccremove/<?php echo $collectioncenter-> collection_center_id; ?>" method="post" onclick="myfunction()">remove</a></td>
+    <!--<td align="center"><a href="#" onclick="func()">alert test</a></td>-->
   </tr>
   <?php endforeach; ?>
   <!-- <tr>
@@ -105,6 +106,20 @@
 </div>
 
     </div>
+
+    <script type="text/javascript">
+      function myfunction() {   
+        if($data['result']==true){
+          alert("Successfuly deleted");
+        }else{
+          alert("Deleting failed");
+        }
+      }
+      function func(){
+        alert("HELLO");
+      }
+    </script>
+
 
     <!-- <footer>
       <p>© 2021 All rights reserved by CSG31</p>
