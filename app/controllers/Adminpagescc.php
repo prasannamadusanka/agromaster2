@@ -34,12 +34,24 @@
            
             $this->view('Admin/AdminviewCollectionCenter', $data);
         }
-        public function cclocation(){
-            $data = [
-      
-            ];
+        public function cclocation($place){
+          $embedcode=$this->collectioncenterModel->getembedcode($place);
+          $data = [
+            'embedcode'=>$embedcode
+          ];
            
             $this->view('Admin/AdmincollectionCenterLocation', $data);
+        }
+
+        public function ccremove($id){
+          $result = $this->collectioncenterModel->removecc($id);
+          $collectioncenters = $this->collectioncenterModel->getcc();
+          $data = [
+            'result' => $result,
+            'collectioncenters' => $collectioncenters
+          ];
+           
+            $this->view('Admin/AdmincollectionCenterList', $data);
         }
 
 
