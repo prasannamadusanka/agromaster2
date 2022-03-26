@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/Prediction.css">
+    <title>Prediction of all products</title>
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pre.css">
+    <script src="<?php echo URLROOT; ?>/js/edit.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Rubik|Trirong|Audiowide">
@@ -33,7 +34,7 @@ color: white;
   text-decoration: none;
   font-size: 25px;
   font-family: bevan;
-  width:75%;
+  width:70%;
   box-sizing: border-box;
   
 }
@@ -66,9 +67,23 @@ color: white;
 #customers td{
   font-size: 18px
 }
-#customers{
-  border-radius: 28px;
-  border-style: groove;
+
+input[type=text]{
+      background: lightgreen;
+      max-height: 15px;
+      border-style: groove;
+      border-radius: 10px;
+      border-width: 12px;
+      margin-top: -5px;
+    }
+    #searchterm{
+  background-image:url(<?php echo URLROOT; ?>/img/search.png); 
+  background-position: 10px 8px;
+  background-repeat: no-repeat;
+  
+  font-size: 14px;
+  padding: 14px 10px 5px 40px;
+ 
 }
     </style>
   </head>
@@ -78,7 +93,7 @@ color: white;
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color:yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color:yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -103,9 +118,7 @@ color: white;
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -122,9 +135,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -133,8 +148,10 @@ color: white;
     <div class="content">
         <div class="new">
             <div class="topnav">
-                <a class="active" href="#home">Predicted Quantity</a>
-                <input type="text" placeholder="Search here">
+
+                
+                <a class="active" href="index2">Predicted Quantity</a>
+                <input id="searchterm" onkeyup="myFunction()" type="text" placeholder="Search by Product Name..">
                
               </div>
               <table id="customers">
@@ -179,7 +196,7 @@ color: white;
     ?>
     
    <?php endforeach; ?>
-   <td><b><?php echo $q/$t?></b></td>
+   <td><b><?php echo round($q/$t,2);?></b></td>
    
     
   <?php  endforeach;?>
