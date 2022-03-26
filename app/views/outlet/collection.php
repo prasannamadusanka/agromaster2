@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>collection center</title>
      <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/collection.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -119,7 +119,7 @@ color: white;
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -143,9 +143,7 @@ color: white;
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection" style="background-color: rgba(24, 23, 23, 0.8);"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+         
         
           
           
@@ -162,9 +160,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-       
+        <button class="dropdown-btn" >
+            <a href="collection" style="background-color: rgba(24, 23, 23, 0.8);"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
     </div>
     <!--sidebar end-->
 
@@ -204,7 +204,7 @@ color: white;
           <td>
             <td>E-mail:</td>
             <div id = "cc">
-            <td style="font-size: 10px;font-style: italic;"><a href="" style="font-size: 26px;color: darkblue;"><u><?php echo $result1->email?></u></a></td></div>
+            <td style="font-size: 10px;font-style: italic;"><a href="https://mail.google.com/mail/u/0/?nocheckbrowser" style="font-size: 26px;color: darkblue;"><u><?php echo $result1->email?></u></a></td></div>
 
           </td>
         </tr>
@@ -212,7 +212,7 @@ color: white;
 
       </table>
       <?php endforeach; ?>
-<div><marquee behavior="alternate"><img style="max-height: 210px;margin-left: -100px;margin-top: -10px;border-radius: 15px;border: blue;max-width: 150px" src="<?php echo URLROOT; ?>/img/fruit-seller-box-full-vegetables-51020397.jpg"></marquee></div>
+<div><marquee behavior="alternate"><img style="max-height: 210px;margin-left: -100px;margin-top: -10px;border-radius: 75px;border: blue;max-width: 150px" src="<?php echo URLROOT; ?>/img/fruit-seller-box-full-vegetables-51020397.jpg"></marquee></div>
     </div>
       
         
