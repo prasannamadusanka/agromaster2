@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Edit Rate</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/editrate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -22,7 +22,7 @@
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -47,9 +47,7 @@
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection.html"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+         
         
           
           
@@ -66,9 +64,11 @@
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-       
+        <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
        
     </div>
     <!--sidebar end-->
