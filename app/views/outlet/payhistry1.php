@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Payment History</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/payhistry.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -48,20 +48,36 @@ color: white;
 
 
 
-.topnav input[type=text] {
+ input[type=text] {
   float: right;
-  padding: 6px;
+  
   margin-top: 8px;
-  margin-right: 16px;
-  border: none;
-  font-size: 17px;
-}
+ 
+
+      background: lightcoral;
+      max-height: 12px;
+      border-style: groove;
+      border-radius: 10px;
+      border-width: 8px;
+    }
+    input[type=date] {
+  float: right;
+  
+  margin-top: 8px;
+ 
+
+      background: lightcoral;
+      max-height: 12px;
+      border-style: groove;
+      border-radius: 10px;
+      border-width: 8px;
+    }
     .content{
   width: 80%; margin-top: 60px;padding: 20px;margin-left: 250px;background: url('<?php echo URLROOT; ?>/img/background1.jpg') no-repeat;
       background-position: center;
       background-color: cyan;
       background-size: cover;
-      height: auto;
+      
       transition: 0.5s;
 }
 .btn-block {
@@ -108,7 +124,7 @@ color: white;
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -134,9 +150,7 @@ color: white;
             <a href="payhistry1" style="background-color: rgba(24, 23, 23, 0.8);"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -153,9 +167,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -172,16 +188,22 @@ color: white;
       <tr> 
         <td>
         <div class="btn-hlock" style="align:left; padding-bottom:13px; padding-right:10px; padding-left:10px;">
-                <button type="select" href="/" disabled>Sorted By</button> </div><td width="1020px">
+                <button type="select" href="/" style="background: transparent;color: black" disabled><b>Sorted By</b></button> </div><td width="1020px">
                 
 </td>
 
+<form action="<?php echo URLROOT; ?>/Outletpages/payinv" method="post">
 <td>
-        <div class="btn-hlock" style="align:left; padding-bottom:13px; padding-right:10px; padding-left:10px;">
-                <button type="select" href="/" disabled >Invoice No</button> </div>
-                <td width="1020px">
-                 <input type="text" name="name" required/>
+        
+    <td width="620px" padding-left="10px">
+               <input type="text" name="order_no" required/>
+                
+
+    </td>
+    <td> <button type="submit">Invoice No</button></td>
+            
 </td>
+</form>
        
 
 <form action="<?php echo URLROOT; ?>/Outletpages/payhistry2" method="post">
