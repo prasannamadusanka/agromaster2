@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Full Details of invoices</title>
      <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/full.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -89,7 +89,7 @@ input[type=submit],input[type=reset]{
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
      <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -114,9 +114,7 @@ input[type=submit],input[type=reset]{
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -133,9 +131,11 @@ input[type=submit],input[type=reset]{
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -186,15 +186,21 @@ $total =0;
   <div style="font-size: 28px;">
       <div style="text-align:left;margin-top: 50px;margin-left: 100px;font-size: 20px;margin-bottom: 30px;weight:500px;color:#013220">
         <div >Total<var style="margin-left:600px;color: black;">Rs:<?php echo number_format($total, 2); ?></var></div>
-      <div style="margin-top: 20px;margin-right: 20px;">Paid Amount<var style="margin-left:530px;color: black;">Rs:00.00</var></div>
-      <div style="margin-top: 20px;">Amount to be paid<var style="color: black;margin-left: 480px;">Rs:00.00</var></div>
+         <?php  
+          $p=0;
+         foreach ($data['order1'] as $order1):
+            $p=$total-$order1->p_amount;
+          ?>
+      <div style="margin-top: 20px;margin-right: 20px;">Paid Amount<var style="margin-left:530px;color: black;">Rs:<?php echo $order1->p_amount?></var></div>
+
+      <div style="margin-top: 20px;">Amount to be paid<var style="color: black;margin-left: 480px;">Rs:<?php echo $p?>.00</var></div>
     </div>
-    <?php  foreach ($data['order1'] as $order1):?>
+   
       <?php   if ($order1->status=="Paid"){?>
        <input type='submit'  style="text-align: center;float: right;width: 350px;font-size: 26px;margin-right: 100px;margin-top: 80px;background: grey" name="submit" disabled="" value="Proceed Payment" />
   <?php }
   else{?>
-      <a href="<?php echo URLROOT; ?>/Outletpages/pay1?id= <?php echo $data['id']?>&&st=<?php echo $total ?>"> 
+      <a href="<?php echo URLROOT; ?>/Outletpages/pay1?id= <?php echo $data['id']?>&&st=<?php echo $p ?>"> 
         <input type="submit" style="text-align: center;float: right;width: 350px;font-size: 26px;margin-right: 100px;margin-top: 80px;" name="submit" value="Proceed Payment" ></a>
     <?php  }?>
     <?php  endforeach; ?>
