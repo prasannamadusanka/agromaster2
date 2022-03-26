@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Home Page of outlet user</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/home.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -104,16 +104,21 @@
   background-color:#006b38ff;
   border-radius: 3px;
 }
+.active{
+    background-color: #013220;
+}
 
 .topnav a {
   float: left;
   display: block;
-  color: white;
+color: white;
   text-align: center;
-  padding: 8px 16px;
+  padding: 8px 12px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 22px;
   font-family: bevan;
+  width:50%;
+  box-sizing: border-box;
   
 }
 
@@ -143,6 +148,17 @@ input[type=text]{
       border-radius: 13px;
       border-width: 16px;
     }
+    .badge {
+    position:relative;
+    top:25px;
+    right:-30px;
+    padding:5px 10px;
+    border-radius: 50%;
+    background: red;
+    color:white;
+    cursor: pointer;
+  }
+
   
     </style>
   </head>
@@ -151,8 +167,9 @@ input[type=text]{
      <?php include_once('header.php'); ?>
     <div class="sidebar">
       <div class="profile_info">
+          <span class="badge" onclick="window.location.href='<?php echo URLROOT; ?>/Notifications/read';"><?php echo $data['notificount']?></span>  
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4>Hettipola Supermarket</h4></a>
+        <a href="profile1" > <h4><?php echo $data['p'] ?></h4></a>
       </div>
        <button class="dropdown-btn" style="background-color: rgba(24, 23, 23, 0.8);" >
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -177,9 +194,7 @@ input[type=text]{
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -196,9 +211,11 @@ input[type=text]{
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
