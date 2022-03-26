@@ -18,7 +18,7 @@ $order = new Order();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>Place the order</title>
   <link rel="stylesheet" type = "text/css" href ="<?php echo URLROOT; ?>/css/foods.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -113,7 +113,7 @@ color: white;
 <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4>Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4><?php echo $data['p'] ?></h4></a>
       </div>
        <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -139,9 +139,7 @@ color: white;
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -158,9 +156,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -184,10 +184,12 @@ color: white;
         $assigned_status="Not_assigned";
        $payment_status = "Not Paid";
        $delivery_status="Not Received";
+       $status1="Order has placed";
 				if(isset($_SESSION["cart"])) {
 					foreach($_SESSION["cart"] as $keys => $values){					
-						$order->item_id = $values["item_id"];
+						$order->product_id = $values["item_id"];
 						$order->ordered_quantity = $values["item_quantity"];
+            $order->value_before_delivery = $values["item_quantity"]*$values["item_price"];
 						$order->order_date = $orderDate;
 						$order->order_id = $_GET['order'];
             $order->outlet_id=$outlet_id;
@@ -196,6 +198,7 @@ color: white;
             $order->assigned_status=$assigned_status;
 						$order->payment_status=$payment_status;
             $order->delivery_status=$delivery_status;
+            $order->status1=$status1;
             $order->add();
             $order->make();
             $order->pay();
