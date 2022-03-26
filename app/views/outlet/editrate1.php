@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Edit Rate</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/viewin.css">
+    <script src="<?php echo URLROOT; ?>/js/edit.js"></script>
+    <script src="<?php echo URLROOT; ?>/js/edit.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Rubik|Trirong|Audiowide">
@@ -68,11 +70,24 @@ color: white;
 }
 .topnav input[type=text] {
   float: right;
-  padding: 5px;
-  margin-top: 10px;
-  margin-right: 20px;
-  border: none;
+  
+  margin-top: 8px;
+ 
+
+      background: lightgreen;
+      max-height: 12px;
+      border-style: groove;
+      border-radius: 10px;
+      border-width: 8px;
+    }
+    #searchterm{
+  background-image:url(<?php echo URLROOT; ?>/img/search.png); 
+  background-position: 133px -5px;
+  background-repeat: no-repeat;
+  
   font-size: 12px;
+  padding: 5px 5px 2px 4px;
+ 
 }
     
     </style>
@@ -83,7 +98,7 @@ color: white;
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -108,9 +123,7 @@ color: white;
             <a href="payhistry"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -127,9 +140,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -139,20 +154,15 @@ color: white;
         <div class="new">
           <div class="topnav">
                 <a class="active" href="#home">Edit Rate</a>
-                <input type="text" placeholder="Search here">
+                <input id="searchterm" onkeyup="myFunction()" type="text" placeholder="Search by Product Name..">
                
               </div>
-           
-             
-
-
-
   
-              <table id="customers">
-                <tr>
+    <table id="customers">
+                
     <tr>
-    
-    <th>Product Name      </th>
+    <th>Product No</th>
+    <th>Product Name </th>
     <th>Current Rate</th>
     <th>Edit Rate</th>
     <th></th>
@@ -162,12 +172,13 @@ color: white;
   <?php foreach($data['edit'] as $products) : ?>
     <form action="<?php echo URLROOT; ?>/Outletpages/assignment" method="post">
   <tr>
-    <input type="hidden" name="product_id" value ="<?php echo $products->id?>">
+    <td><?php echo $products->id?></td>
     <td><?php echo $products->name?></td>
     <td><?php echo $products->rate?></td>
-    <td><input type="number" name="selling_rate" value="<?php echo $products->rate?>"></td>
+    <input type="hidden" name="product_id" value ="<?php echo $products->id?>">
+    <td><input type="number" name="selling_rate" min="10" step="0.01" value="<?php echo $products->rate?>" required=""/></td>
      <td><div class="btn-block">
-               <button type="submit">Done</button>
+               <button type="submit" style="background: green;color: white">Done</button>
               </div></td>
    
   </tr>
