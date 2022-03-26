@@ -63,7 +63,7 @@ if(isset($_GET["action"])){
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>Add New Sales</title>
   <link rel="stylesheet" type = "text/css" href ="<?php echo URLROOT; ?>/css/foods.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -158,7 +158,7 @@ color: white;
  <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -183,9 +183,7 @@ color: white;
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection.html"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -202,9 +200,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-     
+     <button class="dropdown-btn" >
+            <a href="collection.html"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -251,7 +251,7 @@ color: white;
         <td style="text-align: center;"><?php echo $values["item_quantity"] ?></td>
         
         
-        <td ><a href="newsale1?action=delete&id=<?php echo $values["food_id"]; ?>"><span>Remove</span></a></td>
+        <td ><a href="newsale1?action=delete&id=<?php echo $values["food_id"]; ?>"><input type="image" src="<?php echo URLROOT; ?>/img/remove.jpg" alt="submit" height="20px 5px";></a></td>
         </tr>
         <?php 
        $p=2;
@@ -277,7 +277,17 @@ color: white;
 
 
 
+<style type="text/css">
+  
+  input[type=text]{
+      background: lightgreen;
+      max-height: 14px;
+      border-style: groove;
+      border-radius: 13px;
+      border-width: 16px;
 
+    }
+</style>
 
 
 
@@ -292,7 +302,12 @@ color: white;
       <div class="new">
             <div class="topnav">
                 <a class="active" href="#home">Product Stock</a>
-                 <input type="text" placeholder="Search here">
+                 <table style="float: right;margin-top: -12px;">
+               <form action="<?php echo URLROOT; ?>/Outletpages/index22" method="post">
+                <div style="border-width: 10px;position: absolute;">
+                <td><input type="text" name="product_id"  value="" placeholder="search by product id" required="/"></td>
+                <td><input type="image" src="<?php echo URLROOT; ?>/img/search.png" alt="submit" style="margin-top: 11px;margin-left:-60px; "></td></div>
+                </form></table>
                 
                
               </div>
@@ -325,7 +340,7 @@ color: white;
               <h4 class="text-dark" style="font-size: 20px;text-align: center;"><?php echo $products->id?> - <?php echo $products->name?></h4>
               
               
-              <h4 class="text-info">Quantity    :  <input type="number" min="1" max="25" name="quantity" class="form-control" value="1" style="width: 60px;margin-left: 55px"> </h5>
+              <h4 class="text-info">Quantity    :  <input type="number" min="1" max="100" step="0.01" name="quantity" class="form-control" value="1" style="width: 60px;margin-left: 55px"> </h5>
               
               <input type="hidden" name="item_name" value="<?php echo $products->name?>">
              
