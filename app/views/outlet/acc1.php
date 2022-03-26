@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Accept orders</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/viewin.css">
     <script src="<?php echo URLROOT; ?>/js/edit.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -139,7 +139,7 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
      <button class="dropdown-btn" >
             <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
