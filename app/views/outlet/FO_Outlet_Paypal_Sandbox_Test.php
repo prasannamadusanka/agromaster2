@@ -35,7 +35,7 @@ table {
 }
 
 #SpecialOne {
-  display: block; width:250px; padding:0px; height: 30px;
+  display: block; width:250px; padding:0px; height: 30px;pointer-events: none;
 }
 
 #SpecialTwwo {
@@ -55,6 +55,7 @@ table {
 #HOne {
   display: none;
 }
+
 </style>
   </head>
   <body>
@@ -65,7 +66,7 @@ table {
      <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
       <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -74,7 +75,7 @@ table {
     <button class="dropdown-btn" >
         <a  href="#"><i class="fas fa-bars"></i><span>Orders</span></a>
     </button>
-    <div class="dropdown-container drop-active">
+    <div class="dropdown-container ">
       <a href="index2"><i class="fas fa-bars"><span></i>New Order</span></a>
       <a href="orderhistory"><i class="fas fa-bars"><span></i>Order History</span></a>
       <a href="accsort"><i class="fas fa-bars"><span></i>Rejected Order</span></a>
@@ -90,9 +91,7 @@ table {
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -109,9 +108,11 @@ table {
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-       
+       <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
     </div>
     <!--sidebar end-->
 
@@ -123,7 +124,7 @@ table {
 
         
 
-	    
+<!--      
 <div id="paypal-button"></div>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
@@ -161,32 +162,54 @@ window.alert('Thank you for your purchase!');
 });
 }
 }, '#paypal-button');
-</script> 
+</script> -->
 <form id="form1A" method="POST">
-<table><tr><td width="0px"></td><td width="100px"><h5>Date:</h5></td><td>
-                <div class="item"><input type="date" name="date" required/></td><td>
-                <i class="fas fa-calendar-alt"></i></div></td></tr>
+<table><tr><td width="0px"></td><td width="100px"><h5>Date:</h5></td><td style="color: blue">
+                <?php echo date('Y-m-d')?>
+                <?php $date1= date('Y-m-d')?>
+                <div class="item"><input type="hidden" name="date" value="<?php echo $date1?>"></td><td>
+                </div></td></tr>
 </table>
 
 <table><tr><td width="0px"></td><td width="100px"><h5> Invoice No:</h5></td><td>
                 <div class="item"><select id="desg3" name="invoice_no" >
    <option value="">Select Invoice</option> 
- <?php foreach($data['orders1'] as $orders1) : ?>
-   <option value="<?php echo $orders1->id?>"><?php echo $orders1->id?></option>
- <?php endforeach; ?> 
-  </select><input type="text" name="invoice_no" id="SpecialTwwo" required=""/>
+ <?php 
+$p=0;
+$id=0;
+$m=0;
+ foreach($data['orders1'] as $orders1) : 
+  $p=$orders1->amount-$orders1->p_amount;
+  ?>
+   <option value="<?php echo $orders1->id?>"><?php echo $orders1->id?>- Rs: <?php echo $p?>.00</option>
+
+ <?php 
+$id=$orders1->id;
+endforeach; ?> 
+  </select><!--input type="text" name="invoice_no" id="SpecialTwwo"/-->
               </div></td></tr>
 </table>  
 
 <table><tr><td width="0px"></td><td width="100px"><h5> Amount (Rs):</h5></td><td>
-                <div class="item"><input type="text" name="amount" id="SpecialTwwo" required="" />
+                <div class="item"><input type="number" name="amount" id="SpecialTwwo" max="10000" min="1" value="0" step="0.01" required="" />
               </div></td></tr>
 </table>
 <br>
-<div><input type="submit" value="Continue to PayPal..." id="desg2"/></div>
+<div><input type="submit"  value="Continue to PayPal..." id="desg2" style="background: green;color: white"/></div>
 </form>
 <?php if(isset($_POST['amount'])){
-  $amount = $_POST['amount'];
+  $p=0;
+  foreach($data['orders1'] as $orders1) : 
+    if($_POST['invoice_no']==$orders1->id){
+    $p=$orders1->amount-$orders1->p_amount;
+      if($_POST['amount']>$p){
+        $amount=$p;
+      }else if($_POST['amount']<=$p){
+        $amount = $_POST['amount'];
+      }
+    }
+    endforeach;
+  
   $date = $_POST['date'];
   $invoice_no = $_POST['invoice_no'];
   //$dollarrupee = 0.004937;
@@ -199,13 +222,13 @@ window.alert('Thank you for your purchase!');
 
 <script type="text/javascript">
   var totalPrice = <?php echo $amount; ?>;
-function funcL(val) {
-  var amount = document.getElementById(SpecialVal);
-  var usamount = parseFloat(amount.value)/ 202.50;
-  usamount = parseFloat(val)/ 202.50;
-document.write("Output: " + usamount.toString());
-  globalThis.valueW = usamount.toString();
-}
+///function funcL(val) {
+  //var amount = document.getElementById(SpecialVal);
+  //var usamount = parseFloat(amount.value)/ 202.50;
+  ///usamount = parseFloat(val)/ 202.50;
+  //document.write("Output: " + usamount.toString());
+  ///globalThis.valueW = usamount.toString();
+///}
 </script> 
 
 
@@ -247,10 +270,10 @@ document.write("Output: " + usamount.toString());
                 var transaction = orderData.purchase_units[0].payments.captures[0];
                 alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\Thank You!');
                 // Replace the above to show a success message within this page, e.g.
-                 const element = document.getElementById('paypal-button-container');
-                 element.innerHTML = '';
-                element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                 Or go to another URL:  actions.redirect('thank_you.html');
+                // const element = document.getElementById('paypal-button-container');
+                // element.innerHTML = '';
+                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                // Or go to another URL:  actions.redirect('thank_you.html');
                 var trans = transaction.id;
                 var t_acc = transaction.account_id;
                 
@@ -264,17 +287,17 @@ document.write("Output: " + usamount.toString());
     }).render('#paypal-button-container');
 </script>
 
-<div><h5>Generated Transaction ID:</h5><input type="text" name="transaction_id" id="SpecialOne"/></div>
+<div><h5>Generated Transaction ID:</h5><input type="text" name="transaction_id" id="SpecialOne" /></div>
 <input type="text" name="amount" id="HOne" value="<?php echo $amount; ?>"/>
 <input type="text" name="date" id="HOne" value="<?php echo $date; ?>"/>
 <input type="text" name="invoice_no" id="HOne" value="<?php echo $invoice_no; ?>"/>
-<div><input type="submit" value="CONFIRM TRANSACTION" id="desg1" size="5px"/><div>
-		</form>
+<div><input type="submit" value="CONFIRM TRANSACTION" id="desg1" size="5px" style="background: green;color: white" /><div>
+    </form>
         </div>
     </div>
 
 
-    <script type="text/javascript">
+    <!--script type="text/javascript">
     $(document).ready(function(){
       $('.nav_btn').click(function(){
         $('.mobile_nav_items').toggleClass('active');
@@ -295,7 +318,7 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
-    </script>
+    </script-->
 
   </body>
 </html>
