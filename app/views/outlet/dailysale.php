@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Daily Sales Management</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/dailysale.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -33,7 +33,7 @@ color: white;
   text-decoration: none;
   font-size: 25px;
   font-family: bevan;
-  width:100%;
+  width:50%;
   box-sizing: border-box;
   
 }
@@ -124,7 +124,7 @@ color: white;
     <div class="sidebar">
       <div class="profile_info">
         <img src="<?php echo URLROOT; ?>/img/profile1.jpg" class="profile_image" alt="">
-        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;">Hettipola Supermarket</h4></a>
+        <a href="<?php echo URLROOT; ?>/users/register" > <h4 style="color: yellowgreen;"><?php echo $data['p'] ?></h4></a>
       </div>
      <button class="dropdown-btn">
         <a href="home"><i class="fas fa-bars"></i><span>Products</span></a>
@@ -149,9 +149,7 @@ color: white;
             <a href="payhistry1"><i class="fas fa-bars"><span></i>Payment History</span></a>
            
           </div>
-          <button class="dropdown-btn" >
-            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
-        </button>
+          
         
           
           
@@ -168,9 +166,11 @@ color: white;
           
         </div>
         <button class="dropdown-btn">
-          <a href="financial"><i class="fas fa-bars"></i><span>Financial Report</span></a>
+          <a href="pp"><i class="fas fa-bars"></i><span>Financial Report</span></a>
       </button>
-      
+      <button class="dropdown-btn" >
+            <a href="collection"><i class="fas fa-bars"></i><span>Collection Center</span></a>
+        </button>
         
        
     </div>
@@ -180,7 +180,7 @@ color: white;
         <div class="new">
             <div class="topnav">
                 <a class="active" href="#home">Daily Sales Management</a>
-                 
+                 <a class="" href="newsale1">Add New Sale</a>
                 
                
               </div>
@@ -201,7 +201,7 @@ color: white;
         
     
              <td class="item"> <input type="date" name="selling_date" required/>
-                <i class="fas fa-calendar-alt"></i></td> 
+             </td> 
                 
             <td>  <button type="submit" >Done</button></td>
               
@@ -229,7 +229,7 @@ color: white;
  </tr>
  <?php endforeach; ?>
               </table>
-  <a href="newsale1"><input type="submit" style="text-align: center;float: right;width: 200px;font-size: 26px;margin-right: 100px;margin-top: 80px;" name="submit" value="Add New Sale" >
+  
       
             </div>
     </div>
